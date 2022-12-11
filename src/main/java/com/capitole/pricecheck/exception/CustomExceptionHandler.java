@@ -1,4 +1,4 @@
-package com.capitole.pricestest.exception;
+package com.capitole.pricecheck.exception;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import org.springframework.http.HttpStatus;

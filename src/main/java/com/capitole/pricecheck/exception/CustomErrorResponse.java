@@ -1,4 +1,4 @@
-package com.capitole.pricestest.exception;
+package com.capitole.pricecheck.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
