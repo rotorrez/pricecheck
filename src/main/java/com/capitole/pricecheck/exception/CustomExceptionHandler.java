@@ -9,6 +9,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.net.SocketTimeoutException;
 import java.time.LocalDateTime;
@@ -22,7 +23,7 @@ public class CustomExceptionHandler {
         return new ResponseEntity(customErrorResponse, HttpStatus.REQUEST_TIMEOUT);
     }
 
-    @ExceptionHandler(value = {MissingServletRequestParameterException.class, HttpMessageNotReadableException.class, MethodArgumentNotValidException.class, JsonMappingException.class})
+    @ExceptionHandler(value = {MethodArgumentTypeMismatchException.class, MissingServletRequestParameterException.class, HttpMessageNotReadableException.class, MethodArgumentNotValidException.class, JsonMappingException.class})
     protected ResponseEntity<Object> handleBadRequestException(Exception ex, WebRequest request) {
         CustomErrorResponse customErrorResponse = new CustomErrorResponse("OH NO! LOOKS LIKE VALIDATION ON REQUEST ARGUMENT FAILED, PLEASE TRY WITH ANOTHER DATA. THANKS: " + ex.getMessage(), request.getDescription(false), LocalDateTime.now());
         return new ResponseEntity(customErrorResponse, HttpStatus.BAD_REQUEST);

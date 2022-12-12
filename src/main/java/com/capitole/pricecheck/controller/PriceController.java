@@ -22,7 +22,6 @@ public class PriceController {
     @Autowired
     public PriceController(PriceService priceService) {
         this.priceService = priceService;
-
     }
 
     @GetMapping("/brands/{brandId}/products/{productId}")
