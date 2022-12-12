@@ -41,16 +41,16 @@ Se debe utilizar una base de datos en memoria (tipo h2) e inicializar con los da
 
 Desarrollar unos test al endpoint rest que  validen las siguientes peticiones al servicio con los datos del ejemplo:
 
--          Test 1: petición a las 10:00 del día 14 del producto 35455   para la brand 1 (ZARA)
--          Test 2: petición a las 16:00 del día 14 del producto 35455   para la brand 1 (ZARA)
--          Test 3: petición a las 21:00 del día 14 del producto 35455   para la brand 1 (ZARA)
--          Test 4: petición a las 10:00 del día 15 del producto 35455   para la brand 1 (ZARA)
--          Test 5: petición a las 21:00 del día 16 del producto 35455   para la brand 1 (ZARA)
+-          Test 1: petición a las 10:00 del día 14 del producto 35455   para la brand 1 (XXXX)
+-          Test 2: petición a las 16:00 del día 14 del producto 35455   para la brand 1 (XXXX)
+-          Test 3: petición a las 21:00 del día 14 del producto 35455   para la brand 1 (XXXX)
+-          Test 4: petición a las 10:00 del día 15 del producto 35455   para la brand 1 (XXXX)
+-          Test 5: petición a las 21:00 del día 16 del producto 35455   para la brand 1 (XXXX)
 
 
-Se valorará:
+## Endpoints and payloads
 
-Diseño y construcción del servicio.
-Calidad de Código.
-Resultados correctos en los test.
+### Get Price by Application Date
+curl --location --request GET 'http://localhost:8080/brands/1/products/35455?applicationDate=2020-06-17T00:00:00' \
+--data-raw ''
 
