@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-
 public interface PriceRepositoryJpa extends JpaRepository<Price, Long> {
 
     @Query(value = "SELECT * FROM PRICES WHERE BRAND_ID = :brandId AND PRODUCT_ID = :productId AND :applicationDate BETWEEN START_DATE AND END_DATE ORDER BY PRIORITY DESC LIMIT 1",

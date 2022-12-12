@@ -1,6 +1,5 @@
 package com.capitole.pricecheck.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
