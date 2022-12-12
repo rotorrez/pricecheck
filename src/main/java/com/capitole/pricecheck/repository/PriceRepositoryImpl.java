@@ -1,6 +1,5 @@
 package com.capitole.pricecheck.repository;
 
-
 import com.capitole.pricecheck.datasource.PriceRepositoryJpa;
 import com.capitole.pricecheck.domain.Price;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ public class PriceRepositoryImpl implements PriceRepository {
     public PriceRepositoryImpl(PriceRepositoryJpa priceRepositoryJpa) {
         this.priceRepositoryJpa = priceRepositoryJpa;
     }
-
 
     @Override
     public Optional<Price> getPriceByApplicationDate(Integer brandId, Long productId, LocalDateTime applicationDate) {
