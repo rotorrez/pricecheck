@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -224,5 +225,23 @@ public class PriceControllerTest {
         ResultActions resultActions = mockMvc.perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
         assertEquals(MethodArgumentTypeMismatchException.class, resultActions.andReturn().getResolvedException().getClass());
+    }
+
+    @Test
+    public void testGetPriceByApplicationDate_WhenParamApplicationDateNotExist_ShouldThrowMissingServletRequestParameterException() throws Exception {
+
+        String brandId = "1";
+        String productId = "35455";
+        String applicationDate = "2024-01-01T00:00:0022222222";
+        String paramApplicationDateNotExist = "xyz";
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders
+                .get(urlTemplate, brandId, productId)
+                .param(paramApplicationDateNotExist, applicationDate)
+                .contentType(MediaType.APPLICATION_JSON_VALUE);
+
+        ResultActions resultActions = mockMvc.perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+        assertEquals(MissingServletRequestParameterException.class, resultActions.andReturn().getResolvedException().getClass());
     }
 }
